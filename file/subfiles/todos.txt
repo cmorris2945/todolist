@@ -1,0 +1,8 @@
+cook
+clean
+cook
+clean
+throw
+sex
+cook
+clean
