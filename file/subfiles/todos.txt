@@ -7,3 +7,6 @@ sex
 cook
 clean
 clean
+get something to eat
+watch tv
+dance
