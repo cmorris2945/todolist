@@ -1,0 +1,14 @@
+cook
+updata new OS
+clean
+throw
+cook
+clean
+clean
+get something to eat
+watch tv
+dance
+fix the car
+go to dentist
+play
+play with cat

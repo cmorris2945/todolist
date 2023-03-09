@@ -1,5 +1,4 @@
 cook
-clean
 cook
 clean
 throw
@@ -9,3 +8,9 @@ clean
 get something to eat
 watch tv
 dance
+fix the car
+go to dentist
+play
+play with cat
+['cook\n', 'cook\n', 'clean\n', 'throw\n', 'cook\n', 'clean\n', 'clean\n', 'get something to eat\n', 'watch tv\n', 'dance\n', 'fix the car\n', 'go to dentist\n', 'play\n', 'play with cat\n']
+['cook\n', 'cook\n', 'clean\n', 'throw\n', 'cook\n', 'clean\n', 'clean\n', 'get something to eat\n', 'watch tv\n', 'dance\n', 'fix the car\n', 'go to dentist\n', 'play\n', 'play with cat\n', "['cook\\n', 'cook\\n', 'clean\\n', 'throw\\n', 'cook\\n', 'clean\\n', 'clean\\n', 'get something to eat\\n', 'watch tv\\n', 'dance\\n', 'fix the car\\n', 'go to dentist\\n', 'play\\n', 'play with cat\\n']\n"]

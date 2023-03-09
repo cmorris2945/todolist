@@ -1,63 +1,72 @@
+def get_todos():
+    with open('file/subfiles/todos.txt', 'r') as file:
+        todos = file.readlines()
+    return todos
 
-
-num = 0
 while True:
-    user_action = input("Welcome to the task todo list program. Just type what you want to do: add, show, edit,"
-                        "completed, or exit...")
-    user_action = user_action.strip()
+        user_action = input("Welcome to the task todo list program. Just type what you want to do: add, show, edit,"
+                            "completed, or exit...")
+        user_action = user_action.strip()
 
 
-    if 'add' in user_action:
-        todo = user_action[4:]
+        if user_action.startswith("add"):
+            todos = user_action[4:]
 
-        with open('file/subfiles/todos.txt', 'r') as file:
-            todos = file.readlines()
+            todos = get_todos()
 
-        todos.append(todo)
+            todos.append(str(todos) + '\n')
 
-        with open('file/subfiles/todos.txt', 'w') as file:
-            file.writelines(todos)
+            with open('file/subfiles/todos.txt', 'w') as file:
+                file.writelines(todos)
 
-    elif 'show' in user_action:
+        elif user_action.startswith("show"):
 
-        with open('file/subfiles/todos.txt', 'r') as file:
-            todos = file.readlines()
+            todos = get_todos()
 
-        for index, item in enumerate(todos):
-            item = item.strip('\n')
-            row = f"{index+1}-{item}"
-            print(row)
-    elif 'edit' in user_action:
-        number = int(input("Enter the number in the todo list to edit..."))
-        number = number -1
+            todos.append(str(todos) + '\n')
 
-        with open('file/subfiles/todos.txt', 'r') as file:
-            todos = file.readlines()
+            for index, item in enumerate(todos):
+                item = item.strip('\n')
+                row = f"{index+1}-{item}"
+                print(row)
+        elif user_action.startswith("edit"):
+            try:
+                number =int(user_action[5:])
+                print(number)
+                number = number -1
 
-        print("Here are the exitsting todos, Mac...", todos)
+                todos = get_todos()
 
-        new_todo = input("Enter the new todo...")
-        todos[number] = new_todo + '\n'
+                new_todo = input("Enter the new todo...")
+                todos[number] = new_todo + '\n'
 
-        print("Here is how it will be done now....", todos)
+                with open('todos.txt', 'w') as file:
+                    file.writelines(todos)
+            except ValueError:
+                print("Your command is not valid")
+                continue
 
-    elif 'completed' in user_action:
-        number = int(input("Number of the todo to complete: "))
+        elif user_action.startswith("completed"):
+            try:
+                number = int(user_action[9:])
 
-        with open('file/subfiles/todos.txt', 'r') as file:
-            todos = file.readlines()
-        index = number -1
-        todo_to_remove = todos[index].strip('\n')
-        todos.pop(index)
+                todos = get_todos()
+                index = number -1
+                todo_to_remove = todos[index].strip('\n')
+                todos.pop(index)
 
-        with open('file/subfiles/todos.txt', 'w') as file:
-            file.writelines(todos)
+                with open('file/subfiles/todos.txt', 'w') as file:
+                    file.writelines(todos)
 
-        message = f"Todo {todo_to_remove} was removed from the list"
-        print(message)
+                message = f"Todo {todo_to_remove} was removed from the list"
+                print(message)
+            except IndexError:
+                print("There is no item with that number chump! Try again...")
+                continue
 
-    elif 'exit' in user_action:
-        break
-    else:
-        print("Command is not valid. Please enter a valid command....")
+
+        elif user_action.startswith("exit"):
+            break
+        else:
+            print("Command is not valid. Please enter a valid command....")
 print("get lost Jack!")
