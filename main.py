@@ -1,7 +1,7 @@
 def get_todos():
-    with open('file/subfiles/todos.txt', 'r') as file:
-        todos = file.readlines()
-    return todos
+    with open('file/subfiles/todos.txt', 'r') as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
 
 while True:
     user_action = input("Welcome to the task todo list program. Just type what you want to do: add, show, edit, completed, or exit...")
