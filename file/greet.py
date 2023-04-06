@@ -1,8 +1,8 @@
-def greet():
-  message = "hello"
+def greet(message):
+
   new_message = message.capitalize()
-  return "hey, hey"
+  return message
   #return new_message
 
-print(greet())
+print(greet("hello"))
 
